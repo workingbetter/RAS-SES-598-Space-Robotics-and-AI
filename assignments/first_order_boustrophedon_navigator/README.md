@@ -5,9 +5,9 @@ ROS2 package for precise lawnmower pattern navigation in Turtlesim using PD cont
 ## Final Tuned Parameters
 | Parameter       | Value | Justification                              |
 |-----------------|-------|--------------------------------------------|
-| Kp_linear       | 5.0   | Aggressive position correction             |
+| Kp_linear       | 5.0   | Fast position correction                   |
 | Kd_linear       | 0.1   | Minimal damping for fast response          |
-| Kp_angular      | 8.0   | Instantaneous heading correction           |  
+| Kp_angular      | 8.0   | Instantaneous turn response                |  
 | Kd_angular      | 0.1   | Allow sharp turn transitions               |
 | Spacing         | 0.6   | High-density coverage pattern              |
 
