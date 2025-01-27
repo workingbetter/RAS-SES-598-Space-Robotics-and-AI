@@ -14,10 +14,9 @@ ROS2 package for precise lawnmower pattern navigation in Turtlesim using PD cont
 ## Performance Metrics
 | Metric                  | Value  | Requirement  | Status |
 |-------------------------|--------|--------------|--------|
-| Average Cross-Track Error | 0.120 | <0.2        | ✅     |
-| Maximum Cross-Track Error | 0.398 | <0.5        | ✅     |
+| Average Cross-Track Error | 0.102 | <0.2        | ✅     |
+| Maximum Cross-Track Error | 0.266 | <0.5        | ✅     |
 | Coverage Completeness    | 100%  | Full         | ✅     |
-| Pattern Uniformity       | 0.6±0.05 | Consistent | ✅     |
 
 ## Visual Evidence
 ![Cross-Track Error Analysis](docs/error_analysis.png)
