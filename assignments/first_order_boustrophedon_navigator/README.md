@@ -4,7 +4,6 @@
 
 
 
-## The Challenge
 
 ### 1. Controller Tuning (60 points)
 Use rqt_reconfigure to tune the following PD controller parameters in real-time:
