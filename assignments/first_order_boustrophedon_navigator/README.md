@@ -5,7 +5,7 @@
 
 
 
-# Controller parameters to tune
+
 self.Kp_linear = 1.0   # Proportional gain for linear velocity
 self.Kd_linear = 0.1   # Derivative gain for linear velocity
 self.Kp_angular = 1.0  # Proportional gain for angular velocity
