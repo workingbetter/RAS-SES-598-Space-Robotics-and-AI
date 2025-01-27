@@ -26,11 +26,6 @@ self.Kd_angular = 0.1  # Derivative gain for angular velocity
    - Click "Fork" in the top-right corner
    - Select your GitHub account as the destination
 
-2. Clone your fork (outside of ros2_ws):
-```bash
-cd ~/
-git clone https://github.com/YOUR_USERNAME/RAS-SES-598-Space-Robotics-and-AI.git
-```
 
 3. Create a symlink to the assignment in your ROS2 workspace:
 ```bash
