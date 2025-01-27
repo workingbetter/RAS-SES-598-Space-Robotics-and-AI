@@ -3,10 +3,7 @@
 ![image](https://github.com/user-attachments/assets/940fc6bc-fcee-4d11-8bc8-d53a650aaf80)
 
 
-t).
 
-## Objective
-Tune a PD controller to make a first-order system execute the most precise boustrophedon pattern possible. The goal is to minimize the cross-track error while maintaining smooth motion.
 
 ## Learning Outcomes
 - Understanding PD control parameters and their effects on first-order systems
