@@ -5,15 +5,6 @@
 
 
 
-## Prerequisites
-
-### System Requirements
-Choose one of the following combinations:
-- Ubuntu 22.04 + ROS2 Humble
-- Ubuntu 23.04 + ROS2 Iron
-- Ubuntu 23.10 + ROS2 Iron
-- Ubuntu 24.04 + ROS2 Jazzy
-
 ### Required Packages
 ```bash
 sudo apt install ros-$ROS_DISTRO-turtlesim
