@@ -6,14 +6,7 @@ self.Kd_linear = 0.1   # Derivative gain for linear velocity
 self.Kp_angular = 1.0  # Proportional gain for angular velocity
 self.Kd_angular = 0.1  # Derivative gain for angular velocity
 
-er
 
-Note: Final grade will also consider documentation quality and analysis depth.
-
-## Extra Credit (10 points)
-Create and implement a custom ROS2 message type to publish detailed performance metrics:
-- Define a custom message type with fields for:
-  - Cross-track error
   - Current velocity
   - Distance to next waypoint
   - Completion percentage
