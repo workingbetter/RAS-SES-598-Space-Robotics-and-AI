@@ -4,11 +4,6 @@
 
 
 
-
-### Required Packages
-```bash
-sudo apt install ros-$ROS_DISTRO-turtlesim
-sudo apt install ros-$ROS_DISTRO-rqt*
 ```
 
 ### Python Dependencies
