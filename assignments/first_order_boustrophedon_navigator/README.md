@@ -2,7 +2,7 @@
 ## Michael
 ![image](https://github.com/user-attachments/assets/940fc6bc-fcee-4d11-8bc8-d53a650aaf80)
 
-- **Space Exploration**: Rovers could use boustrophedon patterns to systematically survey areas of interest, ensuring complete coverage when searching for geological samples or mapping terrain. However, due to energy constraints, informative paths are usually optimized, and this results in paths that are sparser than complete coverage sampling, and may still produce high-accuracy reconstructions. 
+
   
 - **Earth Observation**: Aerial vehicles employ these patterns for:
   - Agricultural monitoring and precision farming
