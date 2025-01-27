@@ -1,11 +1,7 @@
 # First-Order Boustrophedon Navigator 
 ## Michael
 ![image](https://github.com/user-attachments/assets/940fc6bc-fcee-4d11-8bc8-d53a650aaf80)
-
-
-  
-- **Earth Observation**: Aerial vehicles employ these patterns for:
-  - Agricultural monitoring and precision farming
+oring and precision farming
   - Search and rescue operations
   - Environmental mapping and monitoring
   - Geological or archaeological surveys
