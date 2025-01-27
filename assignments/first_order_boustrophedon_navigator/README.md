@@ -71,8 +71,7 @@ ROS2 package for precise lawnmower pattern navigation in Turtlesim using PD cont
 ```bash
 # Clone repository
 cd ~/ros2_ws/src
-git clone https://github.com/YOUR_USERNAME/first_order_boustrophedon_navigator.git
-
+git clone https://github.com/warkingbetter/first_order_boustrophedon_navigator.git
 # Build and run
 colcon build --packages-select first_order_boustrophedon_navigator
 ros2 launch first_order_boustrophedon_navigator boustrophedon.launch.py
