@@ -13,9 +13,7 @@ self.Kd_angular = 0.1  # Derivative gain for angular velocity
 
 
 
-### 3. Analysis and Documentation (20 points)
-Provide a detailed analysis of your tuning process:
-- Methodology used for tuning
+
 - Performance plots and metrics
 - Challenges encountered and solutions
 - Comparison of different parameter sets
