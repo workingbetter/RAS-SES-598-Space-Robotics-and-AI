@@ -1,21 +1,26 @@
-# First-Order Boustrophedon Navigator 
-## Michael
-## Overview
-This project involves tuning a PD controller and optimizing pattern parameters for a boustrophedon navigation system to achieve effective area coverage with a robot.
-## Installation
-- Clone the repository and create a symlink:
-  ```bash
-  cd ~/
-  git clone https://github.com/workingbetter/RAS-SES-598-Space-Robotics-and-AI.git
-  cd ~/ros2_ws/src
-  ln -s ~/RAS-SES-598-Space-Robotics-and-AI/assignments/first_order_boustrophedon_navigator .
+# 🚀 First-Order Boustrophedon Navigator  
+### Developed by **Michael**  
 
-## Build the package
+## 📖 Overview  
+This project focuses on tuning a **PD controller** and optimizing **pattern parameters** for a boustrophedon navigation system. The aim is to enhance area coverage efficiency for robotic navigation.  
+
+---
+
+## ⚙️ Installation  
+
+```bash
+# Clone the repository and create a symlink
+cd ~/
+git clone https://github.com/workingbetter/RAS-SES-598-Space-Robotics-and-AI.git
+cd ~/ros2_ws/src
+ln -s ~/RAS-SES-598-Space-Robotics-and-AI/assignments/first_order_boustrophedon_navigator .
+
+# Build the package
 cd ~/ros2_ws
 colcon build --packages-select first_order_boustrophedon_navigator
 source install/setup.bash
 
-## Launch the demo
+# Launch the demo
 ros2 launch first_order_boustrophedon_navigator boustrophedon.launch.py
 
 ##Controller Tuning
