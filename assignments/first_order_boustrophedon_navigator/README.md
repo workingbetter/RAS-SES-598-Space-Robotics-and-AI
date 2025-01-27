@@ -9,3 +9,10 @@ This project involves tuning a PD controller and optimizing pattern parameters f
   git clone https://github.com/workingbetter/RAS-SES-598-Space-Robotics-and-AI.git
   cd ~/ros2_ws/src
   ln -s ~/RAS-SES-598-Space-Robotics-and-AI/assignments/first_order_boustrophedon_navigator .
+
+## Build the package
+cd ~/ros2_ws
+colcon build --packages-select first_order_boustrophedon_navigator
+source install/setup.bash
+
+## 
