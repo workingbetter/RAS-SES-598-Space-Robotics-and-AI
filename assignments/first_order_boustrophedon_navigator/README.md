@@ -14,10 +14,6 @@ self.Kd_angular = 0.1  # Derivative gain for angular velocity
 
 
 
-- Performance plots and metrics
-- Challenges encountered and solutions
-- Comparison of different parameter sets
-
 ## Getting Started
 
 ### Repository Setup
