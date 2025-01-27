@@ -7,13 +7,6 @@ self.Kp_angular = 1.0  # Proportional gain for angular velocity
 self.Kd_angular = 0.1  # Derivative gain for angular velocity
 
 
-3. Monitor performance:
-```bash
-# View cross-track error as a number
-ros2 topic echo /cross_track_error
-
-# Or view detailed statistics in the launch terminal
-```
 
 4. Visualize trajectory and performance:
 ```bash
