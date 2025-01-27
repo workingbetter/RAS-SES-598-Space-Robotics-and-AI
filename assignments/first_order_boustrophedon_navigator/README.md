@@ -14,15 +14,6 @@ self.Kd_angular = 0.1  # Derivative gain for angular velocity
 
 
 
-## Getting Started
-
-### Repository Setup
-1. Fork the course repository:
-   - Visit: https://github.com/DREAMS-lab/RAS-SES-598-Space-Robotics-and-AI
-   - Click "Fork" in the top-right corner
-   - Select your GitHub account as the destination
-
-
 
 
 2. Launch the demo:
