@@ -14,10 +14,6 @@ self.Kd_angular = 0.1  # Derivative gain for angular velocity
 
 
 
-
-
-2. Launch the demo:
-```bash
 ros2 launch first_order_boustrophedon_navigator boustrophedon.launch.py
 ```
 
