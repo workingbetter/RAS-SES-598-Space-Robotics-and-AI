@@ -27,11 +27,6 @@ self.Kd_angular = 0.1  # Derivative gain for angular velocity
    - Select your GitHub account as the destination
 
 
-3. Create a symlink to the assignment in your ROS2 workspace:
-```bash
-cd ~/ros2_ws/src
-ln -s ~/RAS-SES-598-Space-Robotics-and-AI/assignments/first_order_boustrophedon_navigator .
-```
 
 ### Building and Running
 1. Build the package:
