@@ -11,10 +11,7 @@ self.Kd_linear = 0.1   # Derivative gain for linear velocity
 self.Kp_angular = 1.0  # Proportional gain for angular velocity
 self.Kd_angular = 0.1  # Derivative gain for angular velocity
 ```
-
-Performance Metrics:
-- Average cross-track error (25 points)
-- Maximum cross-track error (15 points)
+error (15 points)
 - Smoothness of motion (10 points)
 - Cornering performance (10 points)
 
