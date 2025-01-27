@@ -26,11 +26,7 @@ self.Kd_angular = 0.1  # Derivative gain for angular velocity
 
 ### Building and Running
 1. Build the package:
-```bash
-cd ~/ros2_ws
-colcon build --packages-select first_order_boustrophedon_navigator
-source install/setup.bash
-```
+
 
 2. Launch the demo:
 ```bash
