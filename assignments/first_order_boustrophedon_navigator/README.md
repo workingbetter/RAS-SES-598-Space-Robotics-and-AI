@@ -6,10 +6,7 @@ self.Kd_linear = 0.1   # Derivative gain for linear velocity
 self.Kp_angular = 1.0  # Proportional gain for angular velocity
 self.Kd_angular = 0.1  # Derivative gain for angular velocity
 
-   - Update the README.md in your fork with:
-     - Final parameter values with justification
-     - Performance metrics and analysis
-     - Plots showing:
+ 
        - Cross-track error over time
        - Trajectory plot
        - Velocity profiles
