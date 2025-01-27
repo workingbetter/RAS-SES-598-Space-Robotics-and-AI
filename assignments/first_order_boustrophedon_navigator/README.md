@@ -7,11 +7,6 @@ self.Kp_angular = 1.0  # Proportional gain for angular velocity
 self.Kd_angular = 0.1  # Derivative gain for angular velocity
 
 
-
-
-ros2 launch first_order_boustrophedon_navigator boustrophedon.launch.py
-```
-
 3. Monitor performance:
 ```bash
 # View cross-track error as a number
