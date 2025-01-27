@@ -10,14 +10,7 @@ self.Kp_linear = 1.0   # Proportional gain for linear velocity
 self.Kd_linear = 0.1   # Derivative gain for linear velocity
 self.Kp_angular = 1.0  # Proportional gain for angular velocity
 self.Kd_angular = 0.1  # Derivative gain for angular velocity
-```
 
-### 2. Pattern Parameters (20 points)
-Optimize the boustrophedon pattern parameters:
-```python
-# Pattern parameters to tune
-self.spacing = 1.0     # Spacing between lines
-```
 - Coverage efficiency (10 points)
 - Pattern completeness (10 points)
 
