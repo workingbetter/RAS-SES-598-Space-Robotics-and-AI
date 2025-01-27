@@ -11,8 +11,7 @@ self.Kd_linear = 0.1   # Derivative gain for linear velocity
 self.Kp_angular = 1.0  # Proportional gain for angular velocity
 self.Kd_angular = 0.1  # Derivative gain for angular velocity
 
-- Coverage efficiency (10 points)
-- Pattern completeness (10 points)
+
 
 ### 3. Analysis and Documentation (20 points)
 Provide a detailed analysis of your tuning process:
