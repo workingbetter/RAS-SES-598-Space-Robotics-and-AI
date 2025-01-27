@@ -20,7 +20,7 @@ ros2 launch first_order_boustrophedon_navigator boustrophedon.launch.py
 
 ##Controller Tuning
 ###Tuned Parameters
-*Kp_linear: 0.7 - Increased from 0.5 to reduce steady-state error.
-*Kd_linear: 0.1 - Increased from 0.05 to dampen oscillations observed at higher Kp_linear.
-*Kp_angular: 0.6 - Adjusted for better cornering performance.
-*Kd_angular: 0.08 - Fine-tuned to ensure smooth angular movements.
+#Kp_linear: 0.7 - Increased from 0.5 to reduce steady-state error.
+#Kd_linear: 0.1 - Increased from 0.05 to dampen oscillations observed at higher Kp_linear.
+#Kp_angular: 0.6 - Adjusted for better cornering performance.
+#Kd_angular: 0.08 - Fine-tuned to ensure smooth angular movements.
