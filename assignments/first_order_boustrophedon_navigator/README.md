@@ -24,9 +24,6 @@ self.Kd_angular = 0.1  # Derivative gain for angular velocity
 
 
 
-### Building and Running
-1. Build the package:
-
 
 2. Launch the demo:
 ```bash
