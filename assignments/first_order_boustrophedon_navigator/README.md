@@ -7,13 +7,6 @@ self.Kp_angular = 1.0  # Proportional gain for angular velocity
 self.Kd_angular = 0.1  # Derivative gain for angular velocity
 
 
-  - Current velocity
-  - Distance to next waypoint
-  - Completion percentage
-  - Other relevant metrics
-- Implement the message publisher in your node
-- Document the message structure and usage
-
 This will demonstrate understanding of:
 - ROS2 message definitions
 - Custom interface creation
