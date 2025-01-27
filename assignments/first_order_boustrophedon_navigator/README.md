@@ -6,12 +6,6 @@ self.Kd_linear = 0.1   # Derivative gain for linear velocity
 self.Kp_angular = 1.0  # Proportional gain for angular velocity
 self.Kd_angular = 0.1  # Derivative gain for angular velocity
 
-Add these topics:
-- /turtle1/pose/x
-- /turtle1/pose/y
-- /turtle1/cmd_vel/linear/x
-- /turtle1/cmd_vel/angular/z
-- /cross_track_error
 
 ## Evaluation Criteria
 
