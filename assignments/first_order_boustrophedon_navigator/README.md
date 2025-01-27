@@ -4,13 +4,6 @@
 
 
 
-```
-
-### Python Dependencies
-```bash
-pip3 install numpy matplotlib
-```
-
 ## The Challenge
 
 ### 1. Controller Tuning (60 points)
