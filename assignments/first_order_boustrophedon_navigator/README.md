@@ -5,12 +5,6 @@
 
 
 
-## Learning Outcomes
-- Understanding PD control parameters and their effects on first-order systems
-- Practical experience with controller tuning
-- Analysis of trajectory tracking performance
-- ROS2 visualization and debugging
-
 ## Prerequisites
 
 ### System Requirements
