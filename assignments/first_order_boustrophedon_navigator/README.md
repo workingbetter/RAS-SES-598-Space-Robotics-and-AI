@@ -2,8 +2,7 @@
 ## Michael
 ![image](https://github.com/user-attachments/assets/940fc6bc-fcee-4d11-8bc8-d53a650aaf80)
 
-- **Ocean Exploration**: Autonomous underwater vehicles (AUVs) use boustrophedon patterns to:
-  - Map the ocean floor
+
   - Search for shipwrecks or aircraft debris
   - Monitor marine ecosystems
   
