@@ -34,7 +34,7 @@ ROS2 package for precise lawnmower pattern navigation in Turtlesim using PD cont
    - 2.0: Reduced sluggish responce
    - 5.0: Eliminated overshoot (10.0 caused oscillations near waypoints)
 3. Tested Kd_linear values (0.1-0.5):
-   - Chose 0.1 for fastest response  when I increase it to 0.5 it becomes slow at the end
+   - I selected 0.1 for fastest response  when I increase it to 0.5 it becomes slow at the end
 
 ### Phase 2: Angular Control Tuning
 1. Initial Kp_angular=2.0 caused not boustrophedon pattern completion
