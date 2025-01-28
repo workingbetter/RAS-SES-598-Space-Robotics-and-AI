@@ -93,7 +93,7 @@ ros2 launch first_order_boustrophedon_navigator boustrophedon.launch.py
 
 ### Phase 3: Pattern Optimization
 1. Tested spacing values (0.5-1.5):
-   - 0.6 provided complete coverage without overlap and higher values doesn't cover the whole area 
+   - 0.6 provided complete coverage without overlap and higher values doesn't cover the whole area and smaller overlaps
    - Validated through trajectory visualization
 
 ### Challenges & Solutions
