@@ -50,12 +50,12 @@ ROS2 package for precise lawnmower pattern navigation in Turtlesim using PD cont
 ## Challenges & Solutions
 Diffuculty installing matplotlib on virtual machine ubuntu because it is unsupported
 solution i used virtual environment for python but finally i decided to do it on visual studio
-## other challanges
+## Parameter comparision
 | Parameter | Wnen Increased         | When Decreased           |
 |-----------|------------------------|--------------------------|
 | Kp_linear | Faster but oscillatory | Increased tracking error |
 | Kp_angular| Crisper turns          | Slower heading response  |
-| Spacing   | Quicker                | Coverage gaps            |
+| Spacing   | Quicker, Few coverage  | Overlaps                 |
 
 ## Installation & Reproduction
 ```bash
