@@ -36,7 +36,7 @@ git clone https://github.com/workingbetter/first_order_boustrophedon_navigator.g
 # Build and run
 colcon build --packages-select first_order_boustrophedon_navigator
 ros2 launch first_order_boustrophedon_navigator boustrophedon.launch.py
-
+```
 ## Tuning Methodology
 
 ### Phase 1: Linear Motion Optimization
