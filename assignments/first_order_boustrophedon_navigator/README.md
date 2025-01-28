@@ -28,6 +28,14 @@ ROS2 package for precise lawnmower pattern navigation in Turtlesim using PD cont
    ros2 run rqt_plot rqt_plot
 ![Velocity Profiles](https://github.com/workingbetter/RAS-SES-598-Space-Robotics-and-AI/blob/0bdb14aedaa7ed18d95e0293cd53cdbbdbbd510e/assignments/first_order_boustrophedon_navigator/turtle%20poxe%20x%20and%20y.png)
 
+## Installation & Reproduction
+```bash
+# Clone repository
+cd ~/ros2_ws/src
+git clone https://github.com/workingbetter/first_order_boustrophedon_navigator.git
+# Build and run
+colcon build --packages-select first_order_boustrophedon_navigator
+ros2 launch first_order_boustrophedon_navigator boustrophedon.launch.py
 
 ## Tuning Methodology
 
@@ -62,11 +70,4 @@ ROS2 package for precise lawnmower pattern navigation in Turtlesim using PD cont
 | Kp_angular| Crisper turns          | Slower heading response  |
 | Spacing   | Quicker, Few coverage  | Overlaps                 |
 
-## Installation & Reproduction
-```bash
-# Clone repository
-cd ~/ros2_ws/src
-git clone https://github.com/workingbetter/first_order_boustrophedon_navigator.git
-# Build and run
-colcon build --packages-select first_order_boustrophedon_navigator
-ros2 launch first_order_boustrophedon_navigator boustrophedon.launch.py
+
