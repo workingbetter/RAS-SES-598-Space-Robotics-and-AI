@@ -22,7 +22,7 @@ ROS2 package for precise lawnmower pattern navigation in Turtlesim using PD cont
 ## Visualization
 ![Lawnmower Trajectory](https://github.com/workingbetter/RAS-SES-598-Space-Robotics-and-AI/blob/537238ab11d82693bff234bc724700ee66e2dbe8/assignments/first_order_boustrophedon_navigator/Boustrophedon_pattern.png) 
 
-![Cross-Track Error Analysis](https://github.com/workingbetter/RAS-SES-598-Space-Robotics-and-AI/blob/3ec2acfab9f24356aaf6edb7c5be33f27d3a3c26/assignments/first_order_boustrophedon_navigator/error_analysis_complete.png)
+![Cross-Track Error Analysis](https://github.com/workingbetter/RAS-SES-598-Space-Robotics-and-AI/blob/1a6b1b65a4762461bbb70e29e9f341a83ff69d48/assignments/first_order_boustrophedon_navigator/error_analysis_complete1.png)
 
 ![Velocity Profiles]()
 
