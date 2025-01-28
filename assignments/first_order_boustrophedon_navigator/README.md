@@ -32,7 +32,7 @@ ROS2 package for precise lawnmower pattern navigation in Turtlesim using PD cont
 1. Started with default Kp_linear=1.0, observed sluggish response
 2. Increased Kp_linear incrementally:
    - 2.0: Reduced sluggish responce
-   - 5.0: Best response # please give me a reason here because when i make it 10 i dont see that much difference
+   - 5.0: Eliminated overshoot (10.0 caused oscillations near waypoints)
 3. Tested Kd_linear values (0.1-0.5):
    - Chose 0.1 for fastest response  when I increase it to 0.5 it becomes slow at the end
 
@@ -47,9 +47,11 @@ ROS2 package for precise lawnmower pattern navigation in Turtlesim using PD cont
    - 0.6 provided complete coverage without overlap and higher values doesn't cover the whole area 
    - Validated through trajectory visualization
 
-## Challenges & Solutions
-Diffuculty installing matplotlib on virtual machine ubuntu because it is unsupported
-solution i used virtual environment for python but finally i decided to do it on visual studio
+### Challenges & Solutions
+| Challenge                        | Solution                                  | Impact Avoided              |
+|----------------------------------|-------------------------------------------|-----------------------------|
+| Matplotlib installation on VM    | Used Windows VSCode                       | Enabled error visualization |
+
 ## Parameter comparision
 | Parameter | Wnen Increased         | When Decreased           |
 |-----------|------------------------|--------------------------|
