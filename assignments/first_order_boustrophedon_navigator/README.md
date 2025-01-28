@@ -31,43 +31,31 @@ ROS2 package for precise lawnmower pattern navigation in Turtlesim using PD cont
 ### Phase 1: Linear Motion Optimization
 1. Started with default Kp_linear=1.0, observed sluggish response
 2. Increased Kp_linear incrementally:
-   - 2.0: Reduced steady-state error by 40%
-   - 5.0: Eliminated residual position errors
+   - 2.0: Reduced sluggish responce
+   - 5.0: Best response # please give me a reason here because when i make it 10 i dont see that much difference
 3. Tested Kd_linear values (0.1-0.5):
-   - Chose 0.1 for fastest response despite minor oscillations
+   - Chose 0.1 for fastest response  when I increase it to 0.5 it becomes slow at the end
 
 ### Phase 2: Angular Control Tuning
-1. Initial Kp_angular=2.0 caused slow turn completion
+1. Initial Kp_angular=2.0 caused not boustrophedon pattern completion
 2. Final Kp_angular=8.0 achieved:
-   - 180° turn completion in <0.5s
-   - Maximum turn overshoot: 0.15 units
-3. Kd_angular kept minimal to avoid turn hesitation
+   - Around 180° turn completion insted of the inital angular 2.0 which looks circular pattern
+3. Kd_angular kept minimal(0.1) to avoid turn hesitation because it causes random pattern when increased 
 
 ### Phase 3: Pattern Optimization
 1. Tested spacing values (0.5-1.5):
-   - 0.6 provided complete coverage without overlap
+   - 0.6 provided complete coverage without overlap and higher values doesn't cover the whole area 
    - Validated through trajectory visualization
-2. Verified 12 complete passes in Turtlesim's 11x11 grid
 
 ## Challenges & Solutions
-1. **Oscillations at High Speed**
-   - Symptom: Wobbling during straight segments at Kp_linear=6.0
-   - Solution: Reduced to 5.0 with Kd_linear=0.1 compromise
-
-2. **Turn Overshoot**
-   - Symptom: Turtle overshooting 180° turns
-   - Solution: Increased Kp_angular to 8.0 for faster correction
-
-3. **Edge Coverage**
-   - Symptom: Incomplete coverage at world boundaries
-   - Solution: Adjusted waypoint generation logic
-
-## Parameter Sensitivity Analysis
-| Parameter | +10% Effect            | -10% Effect              |
+Diffuculty installing matplotlib on virtual machine ubuntu because it is unsupported
+solution i used virtual environment for python but finally i decided to do it on visual studio
+## other challanges
+| Parameter | Wnen Increased         | When Decreased           |
 |-----------|------------------------|--------------------------|
 | Kp_linear | Faster but oscillatory | Increased tracking error |
 | Kp_angular| Crisper turns          | Slower heading response  |
-| Spacing   | Efficiency gain        | Coverage gaps            |
+| Spacing   | Quicker                | Coverage gaps            |
 
 ## Installation & Reproduction
 ```bash
