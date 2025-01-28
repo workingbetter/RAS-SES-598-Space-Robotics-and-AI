@@ -34,7 +34,8 @@ Linear Optimization: Incrementally increased Kp_linear to eliminate sluggish mot
 Angular Refinement: Boosted Kp_angular to ensure crisp 180° turns, critical for pattern integrity.
 
 Pattern Validation: Tested spacing values to guarantee full coverage without redundant paths.
-**Cross track Error Calculation**:
+
+## Cross track Error Calculation
 **Data Collection**:
    - Recorded errors and save them to local directory using the code
 ```ros2 topic echo /cross_track_error > error_log.txt```
