@@ -14,7 +14,7 @@ Parameter Tuning: For fast convergence and stability.
 
 Visualization Tools: plots, error analysis, and live pose tracking via rqt_plot.
 
-## Technical Overview
+## Overview
 Control Strategy
 The robot follows waypoints generated in a boustrophedon pattern, alternating direction between rows to maximize efficiency. A PD controller adjusts linear and angular velocities to minimize tracking errors:
 
