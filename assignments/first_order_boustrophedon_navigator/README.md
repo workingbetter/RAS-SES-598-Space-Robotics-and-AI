@@ -1,7 +1,45 @@
 
 # First-Order Boustrophedon Navigator
-
 ROS2 package for precise lawnmower pattern navigation in Turtlesim using PD control.
+This package enables autonomous coverage of a rectangular area in Turtlesim using a boustrophedon ("lawnmower") pattern, implemented with a PD (Proportional-Derivative) control system. Designed for efficiency and precision, it ensures full spatial coverage with minimal tracking error, making it ideal for applications requiring systematic exploration or resource distribution.
+
+## Key Features
+PD Control System: Optimized linear and angular velocity control for smooth trajectory tracking.
+
+High-Density Coverage: Configurable spacing 0.6 units ensures no gaps or overlaps.
+
+Real-Time Performance Monitoring: Integrated metrics for cross-track error and coverage completeness.
+
+Parameter Tuning: For fast convergence and stability.
+
+Visualization Tools: plots, error analysis, and live pose tracking via rqt_plot.
+
+## Technical Overview
+Control Strategy
+The robot follows waypoints generated in a boustrophedon pattern, alternating direction between rows to maximize efficiency. A PD controller adjusts linear and angular velocities to minimize tracking errors:
+
+Linear Control: Aggressive proportional gain (Kp_linear=5.0) ensures rapid position correction, while a minimal derivative gain (Kd_linear=0.1) prevents overshoot.
+
+Angular Control: High Kp_angular=8.0 enables instantaneous heading adjustments during turns, critical for maintaining the tight 180° reversals in the pattern.
+
+Performance Validation
+Precision: Achieves an average cross-track error of 0.102 units (under the 0.2 requirement) and 100% coverage completeness.
+
+Responsiveness: Tuned derivative terms (Kd_linear=0.1, Kd_angular=0.1) balance damping and agility, enabling sharp transitions without oscillations.
+
+## Development Insights
+### Systematic Tuning Approach
+Linear Optimization: Incrementally increased Kp_linear to eliminate sluggish motion while avoiding oscillations.
+
+Angular Refinement: Boosted Kp_angular to ensure crisp 180° turns, critical for pattern integrity.
+
+Pattern Validation: Tested spacing values to guarantee full coverage without redundant paths.
+
+### Challenges Overcome
+Oscillation Mitigation: High Kp values initially caused overshoot; derivative terms were carefully calibrated to dampen oscillations while preserving speed.
+
+Visualization Setup: Switched to Windows VSCode to resolve Matplotlib compatibility issues on VMs, enabling real-time error plotting.
+
 
 ## Final Tuned Parameters
 | Parameter       | Value | Justification                              |
