@@ -36,9 +36,10 @@ Angular Refinement: Boosted Kp_angular to ensure crisp 180° turns, critical for
 Pattern Validation: Tested spacing values to guarantee full coverage without redundant paths.
 
 ## Cross track Error Calculation
-**Data Collection**:
-   - Recorded errors and save them to local directory using the code
-```ros2 topic echo /cross_track_error > error_log.txt```
+Data Collection
+   - Saved the cross truck errors  to local directory using the code ros2 topic echo /cross_track_error > error_log.txt
+
+
 After extracting the files I have used Google colab to create matplot lib visualization for the average and maximum cross track errors. Finally, I have uploaded to the github repository how i generated the visualisation using matplotlib and numpy.
 
 ### Challenges Overcome
