@@ -21,7 +21,7 @@ ROS2 package for precise lawnmower pattern navigation in Turtlesim using PD cont
 ## Visual Evidence
 ![Cross-Track Error Analysis](assignments/first_order_boustrophedon_navigator/error_analysis_complete.png)
 ![Lawnmower Trajectory](docs/trajectory.png) 
-![Velocity Profiles](docs/velocity_profiles.png)
+![Velocity Profiles](https://github.com/workingbetter/RAS-SES-598-Space-Robotics-and-AI/blob/3ec2acfab9f24356aaf6edb7c5be33f27d3a3c26/assignments/first_order_boustrophedon_navigator/error_analysis_complete.png)
 
 ## Tuning Methodology
 
