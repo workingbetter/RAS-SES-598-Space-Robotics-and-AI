@@ -19,7 +19,7 @@ ROS2 package for precise lawnmower pattern navigation in Turtlesim using PD cont
 | Maximum Cross-Track Error | 0.266 | <0.5        | ✅     |
 | Coverage Completeness    | 100%  | Full         | ✅     |
 
-## Visual Evidence
+## Visualization
 ![Lawnmower Trajectory](https://github.com/workingbetter/RAS-SES-598-Space-Robotics-and-AI/blob/537238ab11d82693bff234bc724700ee66e2dbe8/assignments/first_order_boustrophedon_navigator/Boustrophedon_pattern.png) 
 
 ![Cross-Track Error Analysis](https://github.com/workingbetter/RAS-SES-598-Space-Robotics-and-AI/blob/3ec2acfab9f24356aaf6edb7c5be33f27d3a3c26/assignments/first_order_boustrophedon_navigator/error_analysis_complete.png)
