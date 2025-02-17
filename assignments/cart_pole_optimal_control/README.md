@@ -4,21 +4,16 @@
 ![image](https://github.com/workingbetter/RAS-SES-598-Space-Robotics-and-AI/blob/7121eb081454743c36d2e1d7ab1cf0a09e7ccce0/assignments/cart_pole_optimal_control/images/Cart%20Pole%20tunned.png)
 
 ## System Description
-The assignment is based on the problem formalism here: https://underactuated.mit.edu/acrobot.html#cart_pole
-### Physical Setup
 - Inverted pendulum mounted on a cart
 - Cart traversal range: ±2.5m (total range: 5m)
 - Pole length: 1m
 - Cart mass: 1.0 kg
 - Pole mass: 1.0 kg
-
-### Disturbance Generator
-The system includes an earthquake force generator that introduces external disturbances:
-- Generates continuous, earthquake-like forces using superposition of sine waves
-- Base amplitude: 15.0N (default setting)
-- Frequency range: 0.5-4.0 Hz (default setting)
-- Random variations in amplitude and phase
+- Base amplitude: 15.0N (disturbance setting)
+- Frequency range: 0.5-4.0 Hz 
 - Additional Gaussian noise
+
+
 
 ## Assignment Objectives
 
