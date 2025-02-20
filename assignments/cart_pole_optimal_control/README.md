@@ -14,6 +14,62 @@
 - Additional Gaussian noise
 
 
+## Existing Q/R Matrix Analysis
+Default Parameters:
+```python
+# State cost matrix Q (default values)
+Q = np.diag([1.0, 1.0, 10.0, 10.0])  # [x, x_dot, theta, theta_dot]
+
+# Control cost R (default value)
+R = np.array([[0.1]])  # Control effort cost
+```
+### Analysis:
+- Q matrix priorities:
+- θ (pole angle) and θ_dot have 10x higher weight than position states
+- Focuses on angular stability over cart position
+- R value of 0.1 allows moderate control effort
+- Trade-off: Good for pole stabilization but risks cart position drift under disturbances
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
