@@ -27,7 +27,7 @@ R = np.array([[0.1]])  # Control effort cost
 Q matrix priorities:
 - θ (pole angle) and θ_dot have 10x higher weight than position states
 - Focuses on angular stability over cart position
-R value of 0.1 allows moderate control effort
+- R value of 0.1 allows moderate control effort
 - Trade-off: Good for pole stabilization but risks cart position drift under disturbances
 
 
