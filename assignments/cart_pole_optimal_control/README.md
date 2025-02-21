@@ -69,7 +69,9 @@ Default Tuning: Q = [1, 1, 10, 10], R = [0.1]
 ![image](https://github.com/workingbetter/RAS-SES-598-Space-Robotics-and-AI/blob/ea05d7f8a863a174822d79d2da710ce505c8d646/assignments/cart_pole_optimal_control/images/metrics.png)
 
 
-
+## Control Force Analysis
+- Default: Control forces  diffucult to counteract the 15N disturbances for extended time.
+- Tuned: Forces increased ( peaking at 78 N), effectively stabilizing the system. The lower R allowed this higher effort, aligning with the need to reject strong disturbances.
 
 
 
