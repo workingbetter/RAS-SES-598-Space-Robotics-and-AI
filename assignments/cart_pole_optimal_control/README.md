@@ -25,11 +25,36 @@ Higher weight on theta (10.0) and theta_dot (10.0), emphasizing keeping the pend
 - R = [[0.1]]
 Moderate penalty on control effort, limiting the force applied to the cart.
 
+## Tuning Strategy
 
+The default tuning prioritizes pendulum stability over cart position, which may allow the cart to drift toward its ±2.5m limits under the 15N earthquake disturbances. To improve performance:
 
+- Increase Q[x]: To keep the cart closer to the center (x = 0).
+- Adjust Q[theta]: To maintain pendulum stability, possibly increasing it further if needed.
+- Decrease R: To allow more control effort to counteract disturbances, but not too low to avoid excessive forces.
+- 
+After testing, I found that Q = [50, 5, 20, 10] and R = [0.05] prevented the system from falling, indicating a successful tuning.
 
+## Analysis of Existing Q and R Matrices
 
-
+Default Tuning: Q = [1, 1, 10, 10], R = [0.1]
+- Observation: When running the simulation with default parameters, the pendulum often fell, and the cart exceeded the ±2.5m limit. This suggests insufficient control under the 15N disturbances.
+- Analysis:
+- Low Q[0,0] = 1: Minimal effort to keep x near zero, allowing the cart to drift.
+- Low Q[1,1] = 1: Little damping of cart velocity.
+- Moderate Q[2,2] = 10 and Q[3,3] = 10: Focus on pendulum stability, but not enough to counter disturbances.
+- R = 0.1: Limits control force, reducing the controller's ability to respond aggressively.
+### Tuned Parameters: Q = [50, 5, 20, 10], R = [0.05]
+- Observation: With Q = [50, 5, 20, 10] and R = [0.05], the system remained stable (no falling) for the entire 60-second simulation.
+- Analysis:
+- High Q[0,0] = 50: Strong emphasis on keeping the cart near the center, reducing displacement.
+- Moderate Q[1,1] = 5: Improved velocity damping compared to default.
+- High Q[2,2] = 20: Increased priority on pendulum angle stability.
+- Q[3,3] = 10: Maintained focus on angular velocity.
+- Low R = 0.05: Allows more control effort (higher forces) to counteract disturbances.
+### Trade-offs
+- Default: Prioritizes low control effort and pendulum stability but sacrifices cart position control.
+- Tuned: Balances cart position and pendulum stability, using more control effort. This tuning better handles disturbances but increases force usage.
 
 
 
