@@ -7,12 +7,22 @@
 For this assignment, I manually tuned the LQR controller by modifying the Q and R matrices in lqr_controller.py, rebuilt the package with colcon build, and relaunched the simulation using ros2 launch cart_pole_optimal_control cart_pole_rviz.launch.py. I observed the system's behavior in RViz and noted performance improvements with specific tunings.
 
 - Q Matrix: A diagonal matrix that assigns weights to the states, penalizing deviations from the equilibrium (x = 0, θ = 0). The state vector is [x, x_dot, theta, theta_dot]:
+- [0]: Weight on cart position (x, in meters)
+- [1]: Weight on cart velocity (x_dot, in m/s)
+- [2]: Weight on pendulum angle (theta, in radians)
+- [3]: Weight on pendulum angular velocity (theta_dot, in rad/s)
+- Higher Q values make the controller prioritize minimizing that state, making it more responsive to deviations.
 
+- R Matrix: A scalar (in this case) that penalizes the control input (u, force in Newtons).
+- Higher R values make the controller more conservative, reducing control effort (force) at the expense of state regulation.
+- Lower R values allow more aggressive control, applying larger forces to stabilize the system.
 
-
-
-
-
+## Default Parameters
+- Q = diag([1.0, 1.0, 10.0, 10.0])
+Low weight on x (1.0) and x_dot (1.0), meaning less priority on keeping the cart near the center or damping its velocity.
+Higher weight on theta (10.0) and theta_dot (10.0), emphasizing keeping the pendulum upright.
+- R = [[0.1]]
+Moderate penalty on control effort, limiting the force applied to the cart.
 
 
 
