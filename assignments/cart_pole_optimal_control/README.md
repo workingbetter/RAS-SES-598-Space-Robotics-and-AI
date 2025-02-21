@@ -1,96 +1,85 @@
-# Cart-Pole Optimal Control Assignment
+# Cart-Pole Optimal Control Assignment Solution
 
-[Watch the demo video](https://drive.google.com/file/d/1UEo88tqG-vV_pkRSoBF_-FWAlsZOLoIb/view?usp=sharing)
-![image](https://github.com/workingbetter/RAS-SES-598-Space-Robotics-and-AI/blob/7121eb081454743c36d2e1d7ab1cf0a09e7ccce0/assignments/cart_pole_optimal_control/images/Cart%20Pole%20tunned.png)
+[Watch the demo video](https://drive.google.com/file/d/1UEo88tqG-vV_pkRSoBF_-FWAlsZOLoIb/view?usp=sharing)  
+![image](https://github.com/user-attachments/assets/c8591475-3676-4cdf-8b4a-6539e5a2325f)
 
 ## Overview of Approach
-For this assignment, I manually tuned the LQR controller by modifying the Q and R matrices in lqr_controller.py, rebuilt the package with colcon build, and relaunched the simulation using ros2 launch cart_pole_optimal_control cart_pole_rviz.launch.py. I observed the system's behavior in RViz and noted performance improvements with specific tunings.
+For this assignment, I manually tuned the Linear Quadratic Regulator (LQR) controller by adjusting the Q and R matrices in `lqr_controller.py`. After each tuning iteration, I rebuilt the package using `colcon build` and relaunched the simulation with `ros2 launch cart_pole_optimal_control cart_pole_rviz.launch.py`. I observed the system's behavior in RViz and refined the parameters based on performance.
 
-- Q Matrix: A diagonal matrix that assigns weights to the states, penalizing deviations from the equilibrium (x = 0, θ = 0). The state vector is [x, x_dot, theta, theta_dot]:
-- [0]: Weight on cart position (x, in meters)
-- [1]: Weight on cart velocity (x_dot, in m/s)
-- [2]: Weight on pendulum angle (theta, in radians)
-- [3]: Weight on pendulum angular velocity (theta_dot, in rad/s)
+### Q Matrix
+- **Definition**: A diagonal matrix that assigns weights to the states, penalizing deviations from the equilibrium (`x = 0`, `θ = 0`).
+- **State Vector**: `[x, x_dot, theta, theta_dot]`  
+  - `[0]`: Weight on cart position (`x`, in meters)  
+  - `[1]`: Weight on cart velocity (`x_dot`, in m/s)  
+  - `[2]`: Weight on pendulum angle (`theta`, in radians)  
+  - `[3]`: Weight on pendulum angular velocity (`theta_dot`, in rad/s)  
+- **Effect**: Higher Q values increase the controller's focus on minimizing deviations in that state, improving responsiveness.
 
-Higher Q values make the controller prioritize minimizing that state, making it more responsive to deviations.
-
-- R Matrix: A scalar (in this case) that penalizes the control input (u, force in Newtons).
-- Higher R values make the controller more conservative, reducing control effort (force) at the expense of state regulation.
-- Lower R values allow more aggressive control, applying larger forces to stabilize the system.
+### R Matrix
+- **Definition**: A scalar that penalizes the control input (`u`, force in Newtons).  
+- **Effect**:  
+  - Higher R values reduce control effort, making the controller more conservative.  
+  - Lower R values allow more aggressive control to stabilize the system.
 
 ## Default Parameters
-- Q = diag([1.0, 1.0, 10.0, 10.0])
-Low weight on x (1.0) and x_dot (1.0), meaning less priority on keeping the cart near the center or damping its velocity.
-Higher weight on theta (10.0) and theta_dot (10.0), emphasizing keeping the pendulum upright.
-- R = [[0.1]]
-Moderate penalty on control effort, limiting the force applied to the cart.
+- **Q Matrix**: `diag([1.0, 1.0, 10.0, 10.0])`  
+  - Low weight on `x` (1.0) and `x_dot` (1.0), prioritizing pendulum stability over cart position.  
+  - Higher weight on `theta` (10.0) and `theta_dot` (10.0), focusing on keeping the pendulum upright.  
+- **R Matrix**: `[[0.1]]`  
+  - Moderate penalty on control effort, limiting the force applied.
 
 ## Tuning Strategy
+The default tuning favored pendulum stability but allowed the cart to drift toward its ±2.5m limits under 15N earthquake disturbances. To address this, I used the following strategy:
 
-The default tuning prioritizes pendulum stability over cart position, which may allow the cart to drift toward its ±2.5m limits under the 15N earthquake disturbances. To improve performance:
+- **Increase Q[x]**: To prioritize keeping the cart near the center (`x = 0`).  
+- **Adjust Q[theta]**: To ensure pendulum stability, increasing it if necessary.  
+- **Decrease R**: To allow more control effort to counter disturbances, while avoiding excessive forces.
 
-- Increase Q[x]: To keep the cart closer to the center (x = 0).
-- Adjust Q[theta]: To maintain pendulum stability, possibly increasing it further if needed.
-- Decrease R: To allow more control effort to counteract disturbances, but not too low to avoid excessive forces.
-- 
-After testing, I found that Q = [50, 5, 20, 10] and R = [0.05] prevented the system from falling, indicating a successful tuning.
+After experimentation, I settled on **Q = [50, 5, 20, 10]** and **R = [0.05]**, which kept the system stable without falling.
 
 ## Analysis of Existing Q and R Matrices
 
-Default Tuning: Q = [1, 1, 10, 10], R = [0.1]
-- Observation: When running the simulation with default parameters, the pendulum often fell, and the cart exceeded the ±2.5m limit. This suggests insufficient control under the 15N disturbances.
-- Analysis:
-- Low Q[0,0] = 1: Minimal effort to keep x near zero, allowing the cart to drift.
-- Low Q[1,1] = 1: Little damping of cart velocity.
-- Moderate Q[2,2] = 10 and Q[3,3] = 10: Focus on pendulum stability, but not enough to counter disturbances.
-- R = 0.1: Limits control force, reducing the controller's ability to respond aggressively.
+### Default Tuning: Q = [1, 1, 10, 10], R = [0.1]
+- **Observation**: The pendulum often fell, and the cart exceeded the ±2.5m limit under disturbances.  
+- **Analysis**:  
+  - `Q[0,0] = 1`: Minimal effort to keep `x` near zero, allowing drift.  
+  - `Q[1,1] = 1`: Little damping of cart velocity.  
+  - `Q[2,2] = 10` and `Q[3,3] = 10`: Reasonable focus on pendulum stability, but insufficient for disturbances.  
+  - `R = 0.1`: Limited control force, reducing responsiveness.
+
 ### Tuned Parameters: Q = [50, 5, 20, 10], R = [0.05]
-- Observation: With Q = [50, 5, 20, 10] and R = [0.05], the system remained stable (no falling) for the entire 60-second simulation.
-- Analysis:
-- High Q[0,0] = 50: Strong emphasis on keeping the cart near the center, reducing displacement.
-- Moderate Q[1,1] = 5: Improved velocity damping compared to default.
-- High Q[2,2] = 20: Increased priority on pendulum angle stability.
-- Q[3,3] = 10: Maintained focus on angular velocity.
-- Low R = 0.05: Allows more control effort (higher forces) to counteract disturbances.
-- Duration of Stable Operation: The cart stays stable, It didn't fall for at lieast 5 minutes.
+- **Observation**: The system remained stable for the full 60-second simulation.  
+- **Analysis**:  
+  - `Q[0,0] = 50`: Strong focus on keeping the cart centered.  
+  - `Q[1,1] = 5`: Improved velocity damping.  
+  - `Q[2,2] = 20`: Enhanced pendulum angle stability.  
+  - `Q[3,3] = 10`: Maintained angular velocity control.  
+  - `R = 0.05`: Allowed higher control effort to counter disturbances.  
+- **Duration of Stable Operation**: Stable for at least 5 minutes without falling.
+
 ### Trade-offs
-- Default: Prioritizes low control effort and pendulum stability but sacrifices cart position control.
-- Tuned: Balances cart position and pendulum stability, using more control effort. This tuning better handles disturbances but increases force usage.
+- **Default Tuning**:  
+  - Emphasizes low control effort and pendulum stability but neglects cart position.  
+- **Tuned Parameters**:  
+  - Balances cart position and pendulum stability with increased control effort.  
+  - Better disturbance rejection at the cost of higher forces.
 
-# Tuned performance metrics
-- Max Cart Displacement: 0.27 m
-- Max Angle Deviation: 3.26 deg
-- Max Control Force: 78.13 N
-- Avg Control Force: 13.00 N
-
+## Tuned Performance Metrics
+- **Max Cart Displacement**: 0.27 m  
+- **Max Angle Deviation**: 3.26 deg  
+- **Max Control Force**: 78.13 N  
+- **Avg Control Force**: 13.00 N  
 
 ## Visualizations
-
 ![image](https://github.com/workingbetter/RAS-SES-598-Space-Robotics-and-AI/blob/ea05d7f8a863a174822d79d2da710ce505c8d646/assignments/cart_pole_optimal_control/images/metrics.png)
 
-
 ## Control Force Analysis
-- Default: Control forces  diffucult to counteract the 15N disturbances for extended time.
-- Tuned: Forces increased ( peaking at 78 N), effectively stabilizing the system. The lower R allowed this higher effort, aligning with the need to reject strong disturbances.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- **Default Tuning**:  
+  - Control forces were inadequate against 15N disturbances over time.  
+- **Tuned Parameters**:  
+  - Forces peaked at 78 N, effectively stabilizing the system.  
+  - The lower R value enabled sufficient effort to handle disturbances.
 
 ## License
-This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
-[![Creative Commons License](https://i.creativecommons.org/l/by/4.0/88x31.png)](http://creativecommons.org/licenses/by/4.0/) 
+This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).  
+[![Creative Commons License](https://i.creativecommons.org/l/by/4.0/88x31.png)](http://creativecommons.org/licenses/by/4.0/)
