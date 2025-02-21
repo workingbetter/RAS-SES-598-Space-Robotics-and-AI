@@ -1,7 +1,7 @@
 # Cart-Pole Optimal Control Assignment Solution
 
 [Watch the demo video](https://drive.google.com/file/d/1UEo88tqG-vV_pkRSoBF_-FWAlsZOLoIb/view?usp=sharing)  
-![image]([https://github.com/user-attachments/assets/c8591475-3676-4cdf-8b4a-6539e5a2325f](https://github.com/workingbetter/RAS-SES-598-Space-Robotics-and-AI/blob/616d92ea7ed6c7dd0dd2f17885594ab91077da1f/assignments/cart_pole_optimal_control/images/Cart%20Pole%20tunned.png))
+![image](https://github.com/workingbetter/RAS-SES-598-Space-Robotics-and-AI/blob/616d92ea7ed6c7dd0dd2f17885594ab91077da1f/assignments/cart_pole_optimal_control/images/Cart%20Pole%20tunned.png)
 
 ## Overview of Approach
 For this assignment, I manually tuned the Linear Quadratic Regulator (LQR) controller by adjusting the Q and R matrices in `lqr_controller.py`. After each tuning iteration, I rebuilt the package using `colcon build` and relaunched the simulation with `ros2 launch cart_pole_optimal_control cart_pole_rviz.launch.py`. I observed the system's behavior in RViz and refined the parameters based on performance.
