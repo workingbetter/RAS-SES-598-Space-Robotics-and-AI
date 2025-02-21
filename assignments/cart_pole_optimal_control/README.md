@@ -1,6 +1,8 @@
-# Cart-Pole Optimal Control Assignment Solution
+# Cart-Pole Optimal Control Assignment
 
 [Watch the demo video](https://drive.google.com/file/d/1UEo88tqG-vV_pkRSoBF_-FWAlsZOLoIb/view?usp=sharing)  
+
+
 ![image](https://github.com/workingbetter/RAS-SES-598-Space-Robotics-and-AI/blob/616d92ea7ed6c7dd0dd2f17885594ab91077da1f/assignments/cart_pole_optimal_control/images/Cart%20Pole%20tunned.png)
 
 ## Overview of Approach
