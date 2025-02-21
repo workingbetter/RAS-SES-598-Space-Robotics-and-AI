@@ -1,6 +1,6 @@
 # Cart-Pole Optimal Control Assignment
 
-![video](https://drive.google.com/file/d/1v2NaOhOOva_NndIcqf6n8oDgZT_1k1qv/view?usp=sharing)  
+[video](https://drive.google.com/file/d/1v2NaOhOOva_NndIcqf6n8oDgZT_1k1qv/view?usp=sharing)  
 
 
 ![image](https://github.com/workingbetter/RAS-SES-598-Space-Robotics-and-AI/blob/616d92ea7ed6c7dd0dd2f17885594ab91077da1f/assignments/cart_pole_optimal_control/images/Cart%20Pole%20tunned.png)
