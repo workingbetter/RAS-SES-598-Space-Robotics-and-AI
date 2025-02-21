@@ -64,6 +64,45 @@ After experimentation, I settled on **Q = [50, 5, 20, 10]** and **R = [0.05]**, 
   - Balances cart position and pendulum stability with increased control effort.  
   - Better disturbance rejection at the cost of higher forces.
 
+### Data Extraction
+To analyze the system's performance, I extracted data from the simulation logs. Specifically, I used the `ros2 topic echo` command to capture the joint state and control force data into text files. For example:
+
+- Joint state data: ros2 topic echo /world/empty/model/cart_pole/joint_state > joint_state_data.txt
+- Control force data: ros2 topic echo /model/cart_pole/joint/cart_to_base/cmd_force > control_force_data.txt
+
+
+These commands recorded the necessary data points during the simulation, which I later used for analysis.
+
+### Performance Analysis and Visualization
+I used Python with the Matplotlib library to analyze the extracted data and visualize the system's performance. The analysis included calculating key metrics such as maximum cart displacement, maximum angle deviation, maximum control force, and average control force.
+
+I wrote a Python script to parse the text files and compute these metrics. For example:
+
+- Parsed the joint state data to extract cart positions and pendulum angles.  
+- Parsed the control force data to extract the applied forces.  
+- Computed the maximum and average values for the relevant metrics.
+
+Additionally, I generated plots to visualize the cart position, pendulum angle, and control force over time. These plots helped me understand the system's behavior and verify the effectiveness of the tuned parameters.
+
+Here's an partial code snippet used for plotting:
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Load and parse data
+cart_positions, pendulum_angles = parse_joint_state('joint_state_data.txt')
+control_forces = parse_control_force('control_force_data.txt')
+
+# Plot cart position
+plt.plot(time, cart_positions, label='Cart Position')
+plt.xlabel('Time (s)')
+plt.ylabel('Position (m)')
+plt.title('Cart Position over Time')
+plt.legend()
+plt.show()
+```
+
 ## Tuned Performance Metrics
 - **Max Cart Displacement**: 0.27 m  
 - **Max Angle Deviation**: 3.26 deg  
