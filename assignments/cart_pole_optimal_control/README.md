@@ -3,37 +3,10 @@
 [Watch the demo video](https://drive.google.com/file/d/1UEo88tqG-vV_pkRSoBF_-FWAlsZOLoIb/view?usp=sharing)
 ![image](https://github.com/workingbetter/RAS-SES-598-Space-Robotics-and-AI/blob/7121eb081454743c36d2e1d7ab1cf0a09e7ccce0/assignments/cart_pole_optimal_control/images/Cart%20Pole%20tunned.png)
 
-## System Description
-- Inverted pendulum mounted on a cart
-- Cart traversal range: ±2.5m (total range: 5m)
-- Pole length: 1m
-- Cart mass: 1.0 kg
-- Pole mass: 1.0 kg
-- Base amplitude: 15.0N (disturbance setting)
-- Frequency range: 0.5-4.0 Hz 
-- Additional Gaussian noise
+## Overview of Approach
+For this assignment, I manually tuned the LQR controller by modifying the Q and R matrices in lqr_controller.py, rebuilt the package with colcon build, and relaunched the simulation using ros2 launch cart_pole_optimal_control cart_pole_rviz.launch.py. I observed the system's behavior in RViz and noted performance improvements with specific tunings.
 
-
-## Existing Q/R Matrix Analysis
-Default Parameters:
-```python
-# State cost matrix Q (default values)
-Q = np.diag([1.0, 1.0, 10.0, 10.0])  # [x, x_dot, theta, theta_dot]
-
-# Control cost R (default value)
-R = np.array([[0.1]])  # Control effort cost
-```
-### Analysis:
-Q matrix priorities:
-- θ (pole angle) and θ_dot have 10x higher weight than position states
-- Focuses on angular stability over cart position
-- R value of 0.1 allows moderate control effort
-- Trade-off: Good for pole stabilization but risks cart position drift under disturbances
-
-
-
-
-
+- Q Matrix: A diagonal matrix that assigns weights to the states, penalizing deviations from the equilibrium (x = 0, θ = 0). The state vector is [x, x_dot, theta, theta_dot]:
 
 
 
