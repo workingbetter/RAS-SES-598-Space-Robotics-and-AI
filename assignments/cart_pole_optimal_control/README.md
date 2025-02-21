@@ -11,7 +11,8 @@ For this assignment, I manually tuned the LQR controller by modifying the Q and 
 - [1]: Weight on cart velocity (x_dot, in m/s)
 - [2]: Weight on pendulum angle (theta, in radians)
 - [3]: Weight on pendulum angular velocity (theta_dot, in rad/s)
-- Higher Q values make the controller prioritize minimizing that state, making it more responsive to deviations.
+
+Higher Q values make the controller prioritize minimizing that state, making it more responsive to deviations.
 
 - R Matrix: A scalar (in this case) that penalizes the control input (u, force in Newtons).
 - Higher R values make the controller more conservative, reducing control effort (force) at the expense of state regulation.
