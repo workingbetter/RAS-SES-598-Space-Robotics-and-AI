@@ -52,10 +52,16 @@ Default Tuning: Q = [1, 1, 10, 10], R = [0.1]
 - High Q[2,2] = 20: Increased priority on pendulum angle stability.
 - Q[3,3] = 10: Maintained focus on angular velocity.
 - Low R = 0.05: Allows more control effort (higher forces) to counteract disturbances.
+- Duration of Stable Operation: The cart stays stable, It didn't fall for at lieast 5 minutes.
 ### Trade-offs
 - Default: Prioritizes low control effort and pendulum stability but sacrifices cart position control.
 - Tuned: Balances cart position and pendulum stability, using more control effort. This tuning better handles disturbances but increases force usage.
 
+# Tuned performance metrics
+- Max Cart Displacement: 0.27 m
+- Max Angle Deviation: 3.26 deg
+- Max Control Force: 78.13 N
+- Avg Control Force: 13.00 N
 
 
 
