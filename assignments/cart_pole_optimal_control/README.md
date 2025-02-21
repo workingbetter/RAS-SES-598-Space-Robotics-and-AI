@@ -67,7 +67,7 @@ Default Tuning: Q = [1, 1, 10, 10], R = [0.1]
 ## Visualizations
 ![Performance Metrics]([image_url](https://github.com/workingbetter/RAS-SES-598-Space-Robotics-and-AI/blob/ea05d7f8a863a174822d79d2da710ce505c8d646/assignments/cart_pole_optimal_control/images/metrics.png))
 
-
+![image](https://github.com/workingbetter/RAS-SES-598-Space-Robotics-and-AI/blob/ea05d7f8a863a174822d79d2da710ce505c8d646/assignments/cart_pole_optimal_control/images/metrics.png)
 
 
 
