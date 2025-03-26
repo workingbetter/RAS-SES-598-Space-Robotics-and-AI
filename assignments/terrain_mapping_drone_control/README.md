@@ -159,7 +159,9 @@ Test the setup by running the launch file.
 
    - Saw the Gazebo simulator start with the drone and cylinders. But i haven't taken any screen shoot and now it is not working
 
+Error Faced with Ubuntu 24.04 with jazzy when i run the simulation is shown in the video bellow
 
+[Ubuntu 24.04 with jazzy gazebo sim](https://drive.google.com/file/d/1a5XaKC8URwP_BiAGKH3to-7Mvn96i6Zs/view?usp=sharing)
 
 
 
@@ -319,4 +321,5 @@ The key challenges I faced were rooted in the simulation environment’s instabi
 
 ### 7. Conclusion
 Although I couldn’t complete the "Rocky Times Challenge" due to technical difficulties, this assignment provided valuable experience in setting up robotics simulations, managing dependencies, and troubleshooting complex issues. I documented my process thoroughly to demonstrate my effort and understanding of the requirements, even though the simulation crashes prevented implementation. I’m disappointed not to have a working solution but am motivated to learn from this and improve my skills for future projects.
+
 
