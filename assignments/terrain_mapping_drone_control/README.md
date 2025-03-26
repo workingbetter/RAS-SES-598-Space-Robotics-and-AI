@@ -1,6 +1,4 @@
-Below is your final submission document for the "Rocky Times Challenge" assignment, tailored to your situation. It reflects the challenges you faced, the steps you took to set up and troubleshoot the environment, and the current state of your project, given that the simulation is crashing and you couldn’t fully implement the drone controller. This document is detailed, honest, and demonstrates your effort and understanding despite the technical difficulties.
 
----
 
 ## Assignment 3: Rocky Times Challenge - Search, Map, & Analyze
 
