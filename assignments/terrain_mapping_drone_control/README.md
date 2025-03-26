@@ -1,9 +1,245 @@
 
-
 ## Assignment 3: Rocky Times Challenge - Search, Map, & Analyze
 
 ### 1. Introduction
 This report outlines my work on Assignment 3 of the RAS-SES-598 Space Robotics and AI course, titled the "Rocky Times Challenge." The objective was to develop an autonomous drone controller using ROS2 and the PX4 SITL simulator to search for, map, and analyze two cylindrical rock formations (10m and 7m tall), estimate their dimensions, and land on the taller cylinder. Unfortunately, I encountered significant technical issues that prevented me from completing the assignment fully. These included compatibility problems with Ubuntu 24.04 and ROS2 Jazzy, followed by simulation crashes after updates and finally going to  Ubuntu 22.04 with ROS2 Humble. Despite these setbacks, this document details my efforts, the setup process, my intended approach, and the troubleshooting steps I took to address the problems.
+
+## Step-by-Step Method to Set Up the Environment
+
+### Step 1: Remove the Existing Repository
+Since I’ve noticed potential issues with added or updated files in your current clone, let’s start by removing it to ensure a clean slate.
+
+1. **Open a Terminal**: Press `Ctrl + Alt + T` to open a terminal window.
+2. **Navigate to Home Directory**:
+   ```bash
+   cd ~
+   ```
+   This takes me to home directory (e.g., `/home/yourusername`).
+3. **Remove the Existing Repository**: 
+   ```bash
+   rm -rf RAS-SES-598-Space-Robotics-and-AI
+   ```
+   - `rm -rf` deletes the folder and all its contents. (`~`) and only want to remove this specific folder. Double-checking by typing `ls` afterward to confirm it’s gone.
+
+### Step 2: Re-clone Forked Repository
+Now, let’s clone updated fork from GitHub.
+
+1. **Stay in Home Directory**:  be at `~`. If not, type `cd ~` again.
+2. **Clone Fork**:  `workingbetter` with GitHub username (which it already matches) and run:
+   ```bash
+   git clone https://github.com/workingbetter/RAS-SES-598-Space-Robotics-and-AI.git
+   ```
+   - This downloads forked repository into a new folder called `RAS-SES-598-Space-Robotics-and-AI`. It may take a minute depending on internet speed.
+3. **Verify the Clone**: Check that the folder exists by typing:
+   ```bash
+   ls
+   ```
+   You should see `RAS-SES-598-Space-Robotics-and-AI` listed.
+
+### Step 3: Sync Fork with the Upstream Repository
+fork might be outdated compared to the original repository. Let’s sync it with the latest changes (e.g., from the pull request mentioned in the additional information).
+
+1. **Navigate to the Repository**: Enter:
+   ```bash
+   cd ~/RAS-SES-598-Space-Robotics-and-AI
+   ```
+2. **Add the Upstream Remote**: Link clone to the original repository (if not already done):
+   ```bash
+   git remote add upstream https://github.com/DREAMS-lab/RAS-SES-598-Space-Robotics-and-AI.git
+   ```
+   - Check if it worked by typing `git remote -v`. should see `origin` (fork) and `upstream` listed.
+3. **Fetch Upstream Changes**: Get the latest updates from the original repository:
+   ```bash
+   git fetch upstream
+   ```
+4. **Switch to Main Branch**: Ensure on the `main` branch:
+   ```bash
+   git checkout main
+   ```
+5. **Merge the Updates**: Combine the upstream changes into local repository:
+   ```bash
+   git merge upstream/main
+   ```
+
+### Step 4: Set Up ROS2 Workspace
+Link the `terrain_mapping_drone_control` package to ROS2 workspace.
+
+1. **Navigate to ROS2 Workspace Source Directory**:
+   ```bash
+   mkdir -p ~/ros2_ws/src
+   cd ~/ros2_ws/src
+   ```
+2. **Create a Symlink**: Link the package:
+   ```bash
+   ln -s ~/RAS-SES-598-Space-Robotics-and-AI/assignments/terrain_mapping_drone_control .
+   ```
+   - Check it worked by typing `ls`. see `terrain_mapping_drone_control` listed.
+
+### Step 5: Install or Verify Prerequisites
+Ensure all required software is installed. Since you’re on Ubuntu 22.04, 
+
+- **ROS2 Humble**:
+  - Check if installed: `ros2 --version`.  see a version (e.g., “humble”), it’s ready.
+ 
+    ```bash
+    sudo apt update
+    sudo apt install ros-humble-desktop
+    source /opt/ros/humble/setup.bash
+    ```
+    Add `source /opt/ros/humble/setup.bash` to `~/.bashrc` by typing `echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc`.
+
+- **PX4 SITL Simulator**:
+  1. **Clone PX4-Autopilot**: 
+     ```bash
+     cd ~
+     git clone https://github.com/PX4/PX4-Autopilot.git
+     ```
+  2. **Checkout Specific Commit**: Use the tested version:
+     ```bash
+     cd ~/PX4-Autopilot
+     git checkout 9ac03f03eb
+     ```
+  3. **Install Dependencies**: Run PX4’s setup script :
+     ```bash
+     bash ./Tools/setup/ubuntu.sh
+     ```
+
+- **RTAB-Map ROS2 Package**:
+  - Install: `sudo apt install ros-humble-rtabmap-ros`
+
+- **OpenCV**:
+  - Typically included with ROS2, : `python3 -c "import cv2; print(cv2.__version__)"`
+  - If missing: `sudo apt install python3-opencv`
+
+- **Python 3.8+**:
+  - : `python3 --version`. Ubuntu 22.04 uses Python 3.10 by default, which is fine.
+
+### Step 6: Deploy Custom PX4 Model Files
+Copy the custom models (e.g., `x500_depth_mono`) to the PX4 directory.
+
+1. **Navigate to the Scripts Directory**:
+   ```bash
+   cd ~/ros2_ws/src/terrain_mapping_drone_control/scripts
+   ```
+2. **Make the Script Executable**:
+   ```bash
+   chmod +x deploy_px4_model.sh
+   ```
+3. **Run the Script**: Specify your PX4 path:
+   ```bash
+   ./deploy_px4_model.sh -p ~/PX4-Autopilot
+   ```
+   - This copies model files without overwriting official ones, per the pull request updates.
+
+### Step 7: Build the Package
+Compile the package in your ROS2 workspace.
+
+1. **Go to Your Workspace**:
+   ```bash
+   cd ~/ros2_ws
+   ```
+2. **Build**:
+   ```bash
+   colcon build --packages-select terrain_mapping_drone_control --symlink-install
+   ```
+   - `--symlink-install` lets you edit Python files without rebuilding.
+3. **Source the Workspace**:
+   ```bash
+   source install/setup.bash
+   ```
+   - Add this to `~/.bashrc` if you haven’t: `echo "source ~/ros2_ws/install/setup.bash" >> ~/.bashrc`.
+
+### Step 8: Launch the Simulation
+Test the setup by running the launch file.
+
+1. **Launch with Default Path**:
+   ```bash
+   ros2 launch terrain_mapping_drone_control cylinder_landing.launch.py
+   ```
+
+   - Saw the Gazebo simulator start with the drone and cylinders. But i haven't taken any screen shoot and now it is not working
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### 2. Environment Setup
 Setting up the simulation environment proved to be the most challenging aspect of this assignment. Below is a step-by-step account of my attempts, the issues I faced, and my efforts to resolve them:
