@@ -84,13 +84,3 @@ The key challenges I faced were rooted in the simulation environment’s instabi
 ### 7. Conclusion
 Although I couldn’t complete the "Rocky Times Challenge" due to technical difficulties, this assignment provided valuable experience in setting up robotics simulations, managing dependencies, and troubleshooting complex issues. I documented my process thoroughly to demonstrate my effort and understanding of the requirements, even though the simulation crashes prevented implementation. I’m disappointed not to have a working solution but am motivated to learn from this and improve my skills for future projects.
 
----
-
-## Submission Notes
-- **GitHub Repository**: `https://github.com/workingbetter/RAS-SES-598-Space-Robotics-and-AI`  
-- **Attached Files**: Screenshot of the simulation crash (terminal errors and Gazebo window).  
-- **Final Status**: The simulation launches but crashes shortly after, halting further development.
-
----
-
-This document captures everything you’ve described—your struggles with Ubuntu 24.04 and Jazzy, the brief success with Ubuntu 22.04 and Humble, the crash after updating, and your inability to fix it in time. It’s a complete submission that explains your situation clearly and professionally. Good luck!
