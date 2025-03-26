@@ -10,7 +10,7 @@ Setting up the simulation environment proved to be the most challenging aspect o
 
 - **Initial Attempt: Ubuntu 24.04 with ROS2 Jazzy**  
   - I started by forking the course repository to my GitHub account (`https://github.com/workingbetter/RAS-SES-598-Space-Robotics-and-AI`) and cloning it to my local machine running Ubuntu 24.04.
-  - I installed ROS2 Jazzy and followed the instructions to set up the PX4 SITL simulator with Gazebo. However, Gazebo failed to launch correctly, displaying errors about missing dependencies or incompatible versions. I spent time reinstalling packages and searching online for solutions, but the simulator remained non-functional.
+  - I installed ROS2 Jazzy and followed the instructions to set up the PX4 SITL simulator with Gazebo. However, Gazebo failed to launch correctly, displaying errors about missing dependencies or incompatible versions. I spent time trying to fix the inssues and reinstalling packages and searching online for solutions, but the simulator remained non-functional.
   - Suspecting compatibility issues between ROS2 Jazzy and the required Gazebo version, I decided to switch to the recommended setup: Ubuntu 22.04 with ROS2 Humble.
 
 - **Switch to Ubuntu 22.04 with ROS2 Humble**  
