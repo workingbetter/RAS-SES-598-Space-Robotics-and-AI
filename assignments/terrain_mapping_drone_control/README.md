@@ -10,8 +10,8 @@ Setting up the simulation environment proved to be the most challenging aspect o
 
 - **Initial Attempt: Ubuntu 24.04 with ROS2 Jazzy**  
   - I started by forking the course repository to my GitHub account (`https://github.com/workingbetter/RAS-SES-598-Space-Robotics-and-AI`) and cloning it to my local machine running Ubuntu 24.04.
-  - I installed ROS2 Jazzy and followed the instructions to set up the PX4 SITL simulator with Gazebo. However, Gazebo failed to launch correctly, displaying errors about missing dependencies or incompatible versions. I spent time trying to fix the inssues and reinstalling packages and searching online for solutions, but the simulator remained non-functional.
-  - Suspecting compatibility issues between ROS2 Jazzy and the required Gazebo version, I decided to switch to the recommended setup: Ubuntu 22.04 with ROS2 Humble.
+  - I installed ROS2 Jazzy and followed the instructions to set up the PX4 SITL simulator with Gazebo. However, Gazebo failed to launch correctly, displaying errors and immideatly closing (crushing) after i run the sim. I spent time trying to fix the inssues and reinstalling packages and searching online for solutions, but the simulator remained non-functional.
+  - Suspecting issues between ROS2 Jazzy and the required Gazebo version, I decided to switch to the recommended setup: Ubuntu 22.04 with ROS2 Humble.
 
 - **Switch to Ubuntu 22.04 with ROS2 Humble**  
   - I performed a clean installation of Ubuntu 22.04 on my system and installed ROS2 Humble, PX4-Autopilot (commit `9ac03f03eb`), RTAB-Map, OpenCV, and Python 3.10 as per the assignment guidelines.
@@ -28,10 +28,13 @@ Setting up the simulation environment proved to be the most challenging aspect o
     ```bash
     sudo apt update
     sudo apt upgrade
+    cd ~/PX4-Autopilot
+    bash ./Tools/setup/ubuntu.sh
     ```
   - After the update, the simulation started crashing upon launch. Gazebo would either freeze shortly after loading or fail to load the world entirely, with terminal errors indicating problems like missing model files or plugin failures.
   - I captured a screenshot of the crash (attached with this submission), which shows the error messages in the terminal and the partially loaded Gazebo window.
   - I attempted to fix this by reinstalling ROS2 Humble, PX4, and Gazebo, and even tried rolling back some updates using cached packages, but the simulation continued to crash. With the submission deadline approaching, I couldn’t resolve the issue in time.
+![Screenshot 2025-03-25 201431](https://github.com/user-attachments/assets/c5972843-b877-4188-8792-da8d358be664)
 
 ### 3. Intended Approach
 Although I couldn’t implement the drone controller due to the simulation issues, I had planned a clear strategy to complete the mission. Here’s how I intended to approach the assignment:
